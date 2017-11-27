@@ -1,0 +1,24 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "week 10 liri bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikmm/liri-node-app.git"
+  },
+  "keywords": [
+    "twitter",
+    "spotify",
+    "omdb"
+  ],
+  "author": "Victor Montemayor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikmm/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/vikmm/liri-node-app#readme"
+}
