@@ -8,3 +8,7 @@ var twitterKeys = {
 }
 
 module.exports = twitterKeys;
+
+//Spotify 
+//Client ID f9e1fa511dd546d7bc3dbb3962179260
+//Client Secret c827f777a9c847739e0c8d2d4d346294

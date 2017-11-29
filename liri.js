@@ -1,15 +1,57 @@
+console.log('The bot is starting');
+
 var Twitter = require('twitter');
- 
-var client = new Twitter({
-  consumer_key: 'fbY01dBClmdKQD0luiPGuSEkn',
-  consumer_secret: 'sSthQKzqNBURmYT6QNHds4JUxtosRlTeMIp9QCt62jc6ROcsm9',
-  access_token_key: '934950724575924224-DWd4MPyOjc5fWQ7Gq6M5gH0MOUiOMf4',
-  access_token_secret: 'KEopSepYD3oYGYTfyI7dY4nJkqiANlxY8Ctg7zh2nQo6m'
+var Spotify = require('node-spotify-api');
+
+var config = require('./keys.js');
+var T = new Twitter(config);
+
+var params = {
+    sceen_name: 'vikfromhouston'
+}
+
+function getTweets() {
+
+    T.get('statuses/user_timeline', params, function(error, tweets, response) {
+            if (!error) {
+
+                for (var i = 0; i < tweets.length; i++){
+                	console.log((i+1) + "." + tweets[i].text);
+                	console.log(tweets[i].created_at);
+                }
+            }
+    });
+}
+
+var command = process.argv[2];
+
+console.log(process.argv[2]);
+
+if (command == "my-tweets") {
+    getTweets();
+}
+
+if (command == "spotify-this-song") {
+    getTrack();
+}
+
+
+//Spotify 
+var spotify = new Spotify({
+  id: 'f9e1fa511dd546d7bc3dbb3962179260',
+  secret: 'c827f777a9c847739e0c8d2d4d346294'
 });
  
-var params = {screen_name: 'nodejs'};
-client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets);
+function getTrack() { 
+spotify.search({ type: 'track'}, function(err, data) {
+  if (err) {
+    return console.log('Error occurred: ' + err);
   }
+ 
+console.log(data); 
 });
+}
+
+if (command == "spotify-this-song") {
+    getTrack();
+}
