@@ -2,8 +2,8 @@ console.log('The bot is starting');
 
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
-
 var config = require('./keys.js');
+
 var T = new Twitter(config);
 
 var params = {
@@ -31,27 +31,21 @@ if (command == "my-tweets") {
     getTweets();
 }
 
-if (command == "spotify-this-song") {
-    getTrack();
-}
-
-
-//Spotify 
-var spotify = new Spotify({
-  id: 'f9e1fa511dd546d7bc3dbb3962179260',
-  secret: 'c827f777a9c847739e0c8d2d4d346294'
-});
+// //Spotify 
+// var spotify = new Spotify({
+//   id: 'f9e1fa511dd546d7bc3dbb3962179260'
+//   secret: 'c827f777a9c847739e0c8d2d4d346294'
+// });
  
-function getTrack() { 
-spotify.search({ type: 'track'}, function(err, data) {
-  if (err) {
-    return console.log('Error occurred: ' + err);
-  }
- 
-console.log(data); 
-});
-}
+// function getTrack() { 
+//   search: function({ type: 'artist OR album OR track', query: 'My search query', limit: 20 }, callback);
 
-if (command == "spotify-this-song") {
-    getTrack();
-}
+//   }
+ 
+// console.log(data); 
+// });
+// }
+
+// if (command == "spotify-this-song") {
+//     getTrack();
+// }
